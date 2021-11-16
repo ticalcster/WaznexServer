@@ -56,7 +56,7 @@
                                 {% set ns.row_num = cell.row %}
                             {% endif %}
                             <a href="/colview/{{ grid.id }}/{{ cell.col }}">
-                                <img width={{ grid.cell_width }} class="cell" src="/sliced/{{ grid.get_split_rel_path() }}/{{ cell.filename }}">
+                                <img width={{ grid.cell_width }} class="cell" src="/sliced/{{ grid.id }}/{{ cell.filename }}">
                             </a>
                         {% endfor %}
                         </div>
@@ -72,7 +72,7 @@
                     <a href="/medium/{{ grid.filename }}">
                         <div class="button-like btn-view-size">Medium</div>
                     </a>
-                    <a href="/sliced/{{ grid.get_split_rel_path() }}/lines.png">
+                    <a href="/sliced/{{ grid.id }}/lines.png">
                         <div class="button-like btn-view-diagnostic">D</div>
                     </a>
                     <a href="/mark_bad/{{ grid.id }}" id="lnk-mark-bad">

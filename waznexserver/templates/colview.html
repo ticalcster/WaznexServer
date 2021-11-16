@@ -13,12 +13,12 @@
         <div class="cells">
             {% set row_num = 0 %}
             {% for cell in cell_list %}
-                {% if cell.row > row_num %}
+                {% if cell.col == 0 %}
                     </div><div class="cells">
-                    {% set row_num = cell.row %}
+                    <!-- {% set row_num = cell.row %} -->
                 {% endif %}
-                <a href="/sliced/{{ cell.grid_item.get_split_rel_path() }}/{{ cell.filename }}">
-                    <img width={{ cell_width }} class="cell" src="/sliced/{{ cell.grid_item.get_split_rel_path() }}/{{ cell.filename }}">
+                <a href="/sliced/{{ cell.grid_item.id }}/{{ cell.filename }}">
+                    <img width={{ cell_width }} class="cell" src="/sliced/{{ cell.grid_item.id }}/{{ cell.filename }}">
                 </a>
             {% endfor %}
             </div>

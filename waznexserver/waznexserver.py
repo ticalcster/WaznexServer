@@ -43,6 +43,7 @@ def index():
         grid.cells = cell_list
         # Set image width to fit a row without wrapping
         # Use last cell to get the number of columns 
+        
         grid.cell_width = int(316/(cell_list[-1].col + 1))
     return render_template('index.html',
                            grid=grid,
@@ -81,8 +82,7 @@ def show_diagnostic(grid_item_id):
 
 @app.route('/sliced/<int:grid_item_id>/<filename>')
 def show_sliced(grid_item_id, filename):
-    grid_item = db.session.query(models.GridItem).\
-                filter_by(id=grid_item_id).first()
+    grid_item = db.session.query(models.GridItem).filter_by(id=grid_item_id).first()
     gsp = grid_item.get_split_path()
     app.logger.info('Serving cell through Flask: ' + gsp + '/' + filename)
     return send_from_directory(os.path.join(app.config['SPLIT_FOLDER'], gsp),
